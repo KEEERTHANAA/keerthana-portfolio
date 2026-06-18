@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Keerthana A — Aspiring Product Manager, Product Analyst &amp; Business Analyst</title>
+<meta name="description" content="Keerthana A — B.Tech IT graduate building toward Product Management, Product Analytics, Business Analysis and AI-powered operations.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   TOKENS — single dark theme
+============================================================ */
+:root{
+  --bg:#0a0c11;
+  --bg-soft:#11141b;
+  --card:#151920;
+  --card-2:#1a1f28;
+  --ink:#ece9e2;
+  --ink-dim:#8b92a3;
+  --amber:#ff8a3d;
+  --teal:#56e0c6;
+  --line:rgba(236,233,226,0.10);
+  --line-strong:rgba(236,233,226,0.18);
+  --radius:14px;
+  --display:'Space Grotesk',sans-serif;
+  --body:'Inter',sans-serif;
+  --mono:'JetBrains Mono',monospace;
+  --maxw:1180px;
+  --ease:cubic-bezier(.16,.84,.44,1);
+  --nav-h:74px;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto;}
+  *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+}
+section[id]{scroll-margin-top:var(--nav-h);}
+body{
+  margin:0; font-family:var(--body); background:var(--bg); color:var(--ink); -webkit-font-smoothing:antialiased;
+  position:relative;
+}
+body::before{
+  content:""; position:fixed; inset:0; z-index:-1; pointer-events:none;
+  background:
+    radial-gradient(circle at 14% 8%, rgba(86,224,198,0.07), transparent 42%),
+    radial-gradient(circle at 86% 22%, rgba(255,138,61,0.06), transparent 40%),
+    radial-gradient(circle at 50% 95%, rgba(86,224,198,0.05), transparent 45%);
+}
+body::after{
+  content:""; position:fixed; inset:0; z-index:-1; pointer-events:none; opacity:.035;
+  background:repeating-linear-gradient(180deg, #fff 0px, #fff 1px, transparent 1px, transparent 3px);
+}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+button{font-family:inherit;cursor:pointer;}
+::selection{background:var(--amber);color:#1a0d05;}
+:focus-visible{outline:2px solid var(--amber); outline-offset:3px; border-radius:4px;}
+
+.container{max-width:var(--maxw); margin:0 auto; padding:0 28px;}
+.section{padding:120px 0;}
+@media (max-width:600px){.section{padding:84px 0;}}
+
+.eyebrow{
+  font-family:var(--mono); font-size:12.5px; letter-spacing:.14em; text-transform:uppercase;
+  display:inline-flex; align-items:center; gap:8px; margin:0 0 18px; font-weight:500; color:var(--teal);
+}
+.eyebrow::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor;display:inline-block;}
+h1,h2,h3{font-family:var(--display); font-weight:600; line-height:1.08; margin:0;}
+.h2{font-size:clamp(30px,4vw,42px); margin-bottom:18px; letter-spacing:-0.01em;}
+.lede{font-size:clamp(16px,1.6vw,18px); line-height:1.65; max-width:640px; color:var(--ink-dim);}
+
+.tag{
+  font-family:var(--mono); font-size:11.5px; letter-spacing:.06em; padding:5px 10px; border-radius:6px;
+  display:inline-flex; align-items:center; gap:6px; text-transform:uppercase; font-weight:500;
+  background:var(--card); border:1px solid var(--line); color:var(--ink-dim);
+}
+.chip{font-family:var(--mono); font-size:11px; padding:5px 10px; border-radius:6px; background:var(--card); border:1px solid var(--line); color:var(--ink-dim);}
+.chip-row{display:flex; flex-wrap:wrap; gap:8px;}
+
+.btn{
+  font-family:var(--mono); font-size:13.5px; font-weight:600; letter-spacing:.03em; padding:13px 22px;
+  border-radius:10px; border:1px solid transparent; display:inline-flex; align-items:center; gap:9px;
+  transition:transform .25s var(--ease), background .25s, border-color .25s, box-shadow .25s;
+}
+.btn:hover{transform:translateY(-2px);}
+.btn-primary{background:var(--amber); color:#1a0d05;}
+.btn-primary:hover{background:#ffa05f;}
+.btn-ghost{border-color:var(--line-strong); color:var(--ink);}
+.btn-ghost:hover{border-color:var(--teal); color:var(--teal);}
+
+/* premium glassmorphism AI button */
+.btn-ai{
+  position:relative; overflow:hidden;
+  background:linear-gradient(135deg, rgba(86,224,198,0.16), rgba(255,138,61,0.16));
+  border:1px solid rgba(86,224,198,0.4); color:#eafff7; backdrop-filter:blur(14px) saturate(160%);
+  box-shadow:0 0 0 rgba(86,224,198,0);
+}
+.btn-ai:hover{ box-shadow:0 0 34px rgba(86,224,198,.35), 0 0 56px rgba(255,138,61,.18); border-color:rgba(86,224,198,.75); transform:translateY(-2px);}
+.btn-ai::before{
+  content:""; position:absolute; top:0; left:-60%; width:45%; height:100%;
+  background:linear-gradient(120deg, transparent, rgba(255,255,255,.22), transparent);
+  transform:skewX(-18deg); animation:shimmer 3.4s ease-in-out infinite;
+}
+@keyframes shimmer{0%{left:-60%;}55%{left:120%;}100%{left:120%;}}
+.ai-dot{width:7px;height:7px;border-radius:50%;background:var(--teal); box-shadow:0 0 0 0 rgba(86,224,198,.6); animation:pulse 2s infinite; display:inline-block;}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(86,224,198,.55);}70%{box-shadow:0 0 0 7px rgba(86,224,198,0);}100%{box-shadow:0 0 0 0 rgba(86,224,198,0);}}
+.btn-ai-large{padding:16px 30px; font-size:14.5px;}
+
+.reveal{opacity:0; transform:translateY(22px); transition:opacity .7s var(--ease), transform .7s var(--ease);}
+.reveal.is-visible{opacity:1; transform:translateY(0);}
+
+/* ============================================================
+   NAV
+============================================================ */
+.nav{
+  position:fixed; top:0; left:0; right:0; z-index:200; height:var(--nav-h);
+  background:rgba(10,12,17,0.72); backdrop-filter:blur(16px) saturate(150%); border-bottom:1px solid var(--line);
+}
+.nav-inner{max-width:var(--maxw); margin:0 auto; padding:0 28px; height:100%; display:flex; align-items:center; justify-content:space-between; gap:18px;}
+.brand{font-family:var(--mono); font-weight:700; font-size:14.5px; letter-spacing:.04em; color:var(--ink); display:flex; align-items:center; gap:9px;}
+.nav-links{display:flex; gap:2px; align-items:center;}
+.nav-links a{
+  font-family:var(--mono); font-size:12.5px; color:var(--ink-dim); padding:9px 13px; border-radius:7px;
+  transition:color .2s, background .2s; position:relative;
+}
+.nav-links a:hover{color:var(--ink); background:var(--card);}
+.nav-links a.active{color:var(--amber);}
+.nav-links a.active::after{content:"";position:absolute;left:13px;right:13px;bottom:3px;height:2px;background:var(--amber);border-radius:2px;}
+.nav-cta{display:flex; align-items:center; gap:10px;}
+.hamburger{display:none; flex-direction:column; gap:4px; background:none; border:none; padding:8px;}
+.hamburger span{width:20px; height:2px; background:var(--ink);}
+.mobile-menu{
+  position:fixed; inset:0; background:var(--bg); z-index:300; padding:90px 32px 32px;
+  display:flex; flex-direction:column; gap:6px; transform:translateY(-100%); transition:transform .4s var(--ease);
+}
+.mobile-menu.open{transform:translateY(0);}
+.mobile-menu a{font-family:var(--mono); font-size:18px; padding:14px 4px; border-bottom:1px solid var(--line); color:var(--ink);}
+.mobile-menu a.active{color:var(--amber);}
+.mobile-close{position:absolute; top:22px; right:24px; background:none; border:none; color:var(--ink); font-size:26px;}
+@media (max-width:900px){
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+  .nav-cta .btn span.label-full{display:none;}
+}
+
+/* ============================================================
+   HERO
+============================================================ */
+.hero{min-height:100vh; display:flex; align-items:center; padding:calc(var(--nav-h) + 60px) 0 70px;}
+.hero-grid{display:grid; grid-template-columns:1.1fr 0.9fr; gap:64px; align-items:center;}
+@media (max-width:980px){.hero-grid{grid-template-columns:1fr; gap:48px;}}
+.hero-name{font-size:clamp(44px,6.6vw,76px); letter-spacing:-0.02em; margin-bottom:12px;}
+.hero-role{font-family:var(--mono); font-size:clamp(15px,1.8vw,18px); color:var(--teal); margin:0 0 22px; line-height:1.5;}
+.hero-sub{font-size:16.5px; color:var(--ink-dim); max-width:520px; line-height:1.65; margin-bottom:30px;}
+.hero-ctas{display:flex; gap:14px; flex-wrap:wrap; align-items:center; margin-bottom:14px;}
+.ai-hint{font-family:var(--body); font-style:italic; font-size:13.5px; color:var(--ink-dim); max-width:480px; line-height:1.55;}
+
+.photo-frame{
+  position:relative; border-radius:20px; overflow:hidden; aspect-ratio:4/5; background:var(--card);
+  border:1px solid var(--line); box-shadow:0 30px 80px -30px rgba(0,0,0,.7);
+}
+.photo-frame::after{
+  content:""; position:absolute; inset:0; border-radius:20px; pointer-events:none;
+  box-shadow:inset 0 0 0 1px rgba(86,224,198,.18);
+}
+.photo-frame img.real-photo{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:1;}
+.photo-caption{position:absolute; left:18px; bottom:18px; font-family:var(--mono); font-size:11px; letter-spacing:.06em; color:var(--ink-dim); background:rgba(10,12,17,.55); padding:6px 10px; border-radius:7px; border:1px solid var(--line);}
+
+/* ============================================================
+   ABOUT
+============================================================ */
+.about-grid{display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:start;}
+@media (max-width:880px){.about-grid{grid-template-columns:1fr; gap:34px;}}
+.principles-grid{display:grid; grid-template-columns:1fr; gap:12px;}
+.principle{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:16px 18px; transition:border-color .3s, transform .3s var(--ease);}
+.principle:hover{border-color:var(--teal); transform:translateX(4px);}
+.principle h3{font-size:14.5px; margin-bottom:5px;}
+.principle p{font-size:13px; color:var(--ink-dim); margin:0; line-height:1.5;}
+
+/* ============================================================
+   PROJECTS
+============================================================ */
+.proj-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:22px;}
+@media (max-width:860px){.proj-grid{grid-template-columns:1fr;}}
+.proj-card{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:28px; transition:transform .3s var(--ease), border-color .3s;}
+.proj-card:hover{transform:translateY(-5px); border-color:var(--teal);}
+.proj-card.featured{grid-column:span 2;}
+@media (max-width:860px){.proj-card.featured{grid-column:span 1;}}
+.proj-card h3{font-size:20px; margin-bottom:4px;}
+.proj-card .ptype{font-family:var(--mono); font-size:11.5px; color:var(--amber);}
+.proj-card p.desc{font-size:14.5px; line-height:1.6; color:var(--ink-dim); margin:14px 0 18px;}
+
+/* ============================================================
+   EXPERIENCE
+============================================================ */
+.exp-list{display:flex; flex-direction:column; gap:18px;}
+.exp-row{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:26px 28px; border-left:3px solid var(--teal);}
+.exp-top{display:flex; justify-content:space-between; align-items:baseline; gap:16px; flex-wrap:wrap; margin-bottom:6px;}
+.exp-top h3{font-size:18px;}
+.exp-meta{font-family:var(--mono); font-size:12px; color:var(--ink-dim);}
+.exp-row ul{margin:14px 0 0; padding-left:18px;}
+.exp-row li{font-size:14px; color:var(--ink-dim); line-height:1.6; margin-bottom:4px;}
+
+/* ============================================================
+   SKILLS
+============================================================ */
+.skills-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:26px;}
+@media (max-width:760px){.skills-grid{grid-template-columns:1fr;}}
+.skill-cluster{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:26px;}
+.skill-cluster h3{font-size:14.5px; font-family:var(--mono); letter-spacing:.04em; margin-bottom:16px; color:var(--amber);}
+
+/* ============================================================
+   AI ASSISTANT SECTION
+============================================================ */
+.ai-panel{
+  background:linear-gradient(160deg, rgba(86,224,198,0.08), rgba(255,138,61,0.05));
+  border:1px solid rgba(86,224,198,.25); border-radius:24px; padding:56px 48px; text-align:center;
+  backdrop-filter:blur(6px);
+}
+@media (max-width:600px){.ai-panel{padding:40px 22px;}}
+.ai-panel h2{font-size:clamp(26px,4vw,38px); margin-bottom:16px;}
+.ai-panel .lede{margin:0 auto 30px; text-align:center;}
+.ai-chip-row{display:flex; flex-wrap:wrap; justify-content:center; gap:9px; margin-top:30px;}
+
+/* ============================================================
+   CONTACT
+============================================================ */
+.contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:60px;}
+@media (max-width:860px){.contact-grid{grid-template-columns:1fr; gap:36px;}}
+.form-row{margin-bottom:16px;}
+.form-row label{display:block; font-family:var(--mono); font-size:11px; letter-spacing:.06em; color:var(--ink-dim); margin-bottom:7px;}
+.form-row input, .form-row textarea{
+  width:100%; padding:13px 14px; background:var(--card); border:1px solid var(--line); border-radius:9px;
+  color:var(--ink); font-family:var(--body); font-size:14px; resize:vertical;
+}
+.form-row input:focus, .form-row textarea:focus{border-color:var(--teal); outline:none;}
+.form-note{font-family:var(--mono); font-size:11px; color:var(--ink-dim); margin-top:14px;}
+.contact-direct{margin-top:30px;}
+.contact-direct a{font-family:var(--mono); font-size:15px; color:var(--teal); border-bottom:1px solid rgba(86,224,198,.3);}
+.social-row{display:flex; gap:12px; margin-top:24px;}
+.social-row a{width:42px; height:42px; border-radius:50%; border:1px solid var(--line); display:flex; align-items:center; justify-content:center; transition:border-color .2s,color .2s;}
+.social-row a:hover{border-color:var(--amber); color:var(--amber);}
+
+/* ============================================================
+   FOOTER
+============================================================ */
+.footer{background:#070809; padding:46px 0 30px; border-top:1px solid var(--line);}
+.footer-inner{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:18px;}
+.footer-links{display:flex; gap:18px; flex-wrap:wrap;}
+.footer-links a{font-family:var(--mono); font-size:12px; color:var(--ink-dim);}
+.footer-links a:hover{color:var(--teal);}
+.footer-bottom{margin-top:26px; font-family:var(--mono); font-size:11px; color:var(--ink-dim); display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;}
+.back-top{border:1px solid var(--line); padding:7px 12px; border-radius:7px;}
+
+/* toast */
+.toast{
+  position:fixed; bottom:26px; left:50%; transform:translateX(-50%) translateY(20px); z-index:400;
+  background:var(--card-2); border:1px solid var(--line-strong); color:var(--ink); font-family:var(--mono); font-size:12.5px;
+  padding:13px 18px; border-radius:10px; opacity:0; transition:opacity .3s, transform .3s; pointer-events:none; max-width:90vw; text-align:center;
+}
+.toast.show{opacity:1; transform:translateX(-50%) translateY(0);}
+</style>
+</head>
+<body>
+
+<a href="#main" style="position:absolute;left:-9999px;">Skip to content</a>
+
+<!-- ============ NAV ============ -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#home" class="brand"><span class="ai-dot"></span>KEERTHANA A</a>
+    <div class="nav-links" id="navLinks">
+      <a href="#home" data-section="home">Home</a>
+      <a href="#about" data-section="about">About</a>
+      <a href="#projects" data-section="projects">Projects</a>
+      <a href="#experience" data-section="experience">Experience</a>
+      <a href="#skills" data-section="skills">Skills</a>
+      <a href="#ai-assistant" data-section="ai-assistant">AI Assistant</a>
+      <a href="#contact" data-section="contact">Contact</a>
+    </div>
+    <div class="nav-cta">
+      <a href="assets/Keerthana-A-Resume.pdf" download="Keerthana-A-Resume.pdf" class="btn btn-ghost" style="padding:9px 16px; font-size:12px;"><span class="label-full">Resume</span> ↓</a>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="mobileCloseBtn" aria-label="Close menu">×</button>
+  <a href="#home" data-section="home">Home</a>
+  <a href="#about" data-section="about">About</a>
+  <a href="#projects" data-section="projects">Projects</a>
+  <a href="#experience" data-section="experience">Experience</a>
+  <a href="#skills" data-section="skills">Skills</a>
+  <a href="#ai-assistant" data-section="ai-assistant">AI Assistant</a>
+  <a href="#contact" data-section="contact">Contact</a>
+</div>
+
+<main id="main">
+
+<!-- ============ 1. HOME / HERO ============ -->
+<section class="section hero" id="home">
+  <div class="container hero-grid">
+    <div>
+      <p class="eyebrow">Portfolio</p>
+      <h1 class="hero-name">KEERTHANA A</h1>
+      <p class="hero-role">Aspiring Product Manager | Product Analyst | Business Analyst</p>
+      <p class="hero-sub">B.Tech Information Technology Graduate passionate about Product Management, Product Analytics, Business Analysis, AI-powered business solutions, and startup operations.</p>
+
+      <div class="hero-ctas">
+        <a href="assets/Keerthana-A-Resume.pdf" download="Keerthana-A-Resume.pdf" class="btn btn-ghost">Download Resume ↓</a>
+        <a href="https://www.linkedin.com/in/keerthana-a-634739245" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn ↗</a>
+        <a href="#projects" class="btn btn-ghost">View Projects</a>
+        <a href="https://lab.anam.ai/share/vgsKhbpzfqsxODTXVBto0" target="_blank" rel="noopener" class="btn btn-ai ai-link">
+          <span class="ai-dot"></span> 🤖 Talk to Keerthana AI
+        </a>
+      </div>
+      <p class="ai-hint">Ask me about my projects, experience, skills, career goals, availability, salary expectations, and work preferences.</p>
+    </div>
+
+    <div class="reveal is-visible">
+      <div class="photo-frame">
+        <img class="real-photo" id="realPhoto" src="assets/photo-keerthana.jpg" alt="Keerthana A">
+        <span class="photo-caption">KEERTHANA A — IT GRADUATE</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 2. ABOUT ME ============ -->
+<section class="section" id="about">
+  <div class="container about-grid">
+    <div class="reveal">
+      <p class="eyebrow">About Me</p>
+      <h2 class="h2">Curious by default.<br>Systematic by practice.</h2>
+      <p class="lede">Keerthana is a B.Tech Information Technology graduate who treats product management, analytics, and business strategy as one connected discipline. She's drawn to the moment a messy problem turns into a clear system — a flow, a dashboard, a decision rule that holds up under pressure. She stays current through books, podcasts, founder interviews, startup stories, and business case studies.</p>
+    </div>
+    <div class="principles-grid reveal">
+      <div class="principle"><h3>Understanding Users</h3><p>Every feature starts as a person with a problem, not a backlog item.</p></div>
+      <div class="principle"><h3>Solving Business Problems</h3><p>Good ideas earn their place by moving a real number.</p></div>
+      <div class="principle"><h3>Analyzing Data</h3><p>Opinions are a starting point. Data decides what's true.</p></div>
+      <div class="principle"><h3>Improving Systems</h3><p>If a process needs a hero to work, it isn't a system yet.</p></div>
+      <div class="principle"><h3>Studying Startups</h3><p>The fastest way to learn product is to study how the best ones built it.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3. PROJECTS ============ -->
+<section class="section" id="projects">
+  <div class="container">
+    <p class="eyebrow reveal">Project Log</p>
+    <h2 class="h2 reveal">Featured projects</h2>
+    <p class="lede reveal" style="margin-bottom:46px;">Projects spanning AI safety systems, product platforms, growth strategy, and operations design.</p>
+
+    <div class="proj-grid">
+      <div class="proj-card featured reveal">
+        <h3>Railway Foreign Object Detection System</h3>
+        <span class="ptype">Major Project</span>
+        <p class="desc">An AI-powered railway safety system using computer vision and deep learning to detect foreign objects on railway tracks in real time — identifying hazards, analyzing risk, and alerting railway authorities to help prevent accidents and delays.</p>
+        <div class="chip-row"><span class="chip">Computer Vision</span><span class="chip">Deep Learning</span><span class="chip">Research</span><span class="chip">Problem Solving</span><span class="chip">System Thinking</span><span class="chip">Project Management</span></div>
+      </div>
+
+      <div class="proj-card reveal">
+        <h3>Alumni Portal</h3>
+        <span class="ptype">Mini Project</span>
+        <p class="desc">A platform connecting students and alumni through mentorship, networking, fundraising, scholarships, events, and job opportunities.</p>
+        <div class="chip-row"><span class="chip">Product Thinking</span><span class="chip">User Research</span><span class="chip">Stakeholder Mgmt</span><span class="chip">Requirement Analysis</span></div>
+      </div>
+
+      <div class="proj-card reveal">
+        <h3>Free Aqua</h3>
+        <span class="ptype">Digital Marketing Internship</span>
+        <p class="desc">A business model offering free drinking water, with revenue generated through bottle advertising — built on SEO, market research, and competitor analysis.</p>
+        <div class="chip-row"><span class="chip">Business Strategy</span><span class="chip">Consumer Research</span><span class="chip">Marketing Analytics</span></div>
+      </div>
+
+      <div class="proj-card reveal">
+        <h3>VaultCard</h3>
+        <span class="ptype">Digital Marketing Internship</span>
+        <p class="desc">An NFC-based women's safety solution enabling quick emergency communication, supported by market and customer research.</p>
+        <div class="chip-row"><span class="chip">User Research</span><span class="chip">Product Positioning</span><span class="chip">Business Analysis</span></div>
+      </div>
+
+      <div class="proj-card featured reveal">
+        <h3>AI Startup Operations Platform</h3>
+        <span class="ptype">Personal / In-Progress</span>
+        <p class="desc">A conceptual operations system for early-stage startups — seven connected modules (AI Lead Intelligence, Startup CRM, Product Analytics, Business Intelligence, Executive KPIs, AI Reporting, and an Operations Workspace) designed to replace scattered spreadsheets with one AI-assisted command center.</p>
+        <div class="chip-row"><span class="chip">Product Strategy</span><span class="chip">Dashboard Design</span><span class="chip">System Architecture</span><span class="chip">Business Analysis</span><span class="chip">Leadership</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4. EXPERIENCE ============ -->
+<section class="section" id="experience">
+  <div class="container">
+    <p class="eyebrow reveal">Experience</p>
+    <h2 class="h2 reveal">Where the thinking got tested</h2>
+    <p class="lede reveal" style="margin-bottom:40px;">Hands-on roles and research work where product, analytics, and business thinking met a real deadline.</p>
+
+    <div class="exp-list">
+      <div class="exp-row reveal">
+        <div class="exp-top">
+          <h3>Digital Marketing Intern — VaultCard</h3>
+          <span class="exp-meta">Women's Safety NFC Product · 2023 – 2024</span>
+        </div>
+        <ul>
+          <li>Ran end-to-end SEO (keyword research, on-page optimization, sitemap/robots.txt) — grew organic search impressions by ~35% in 3 months.</li>
+          <li>Planned social and email campaigns via Canva; increased Instagram engagement rate by 28% over 2 months through audience segmentation.</li>
+        </ul>
+      </div>
+
+      <div class="exp-row reveal">
+        <div class="exp-top">
+          <h3>Marketing Executive — Overseas Educational Consultancy</h3>
+          <span class="exp-meta">2022 – 2025</span>
+        </div>
+        <ul>
+          <li>Generated 50+ qualified leads per month through multi-channel outreach, managing the full pipeline at a ~40% lead-to-conversion rate.</li>
+          <li>Standardized outreach workflows, improving funnel visibility and reducing average follow-up cycle time.</li>
+        </ul>
+      </div>
+
+      <div class="exp-row reveal">
+        <div class="exp-top">
+          <h3>Final-Year Major Project — Railway Foreign Object Detection System</h3>
+          <span class="exp-meta">B.Tech IT · Final Year</span>
+        </div>
+        <ul>
+          <li>Coordinated project planning, dataset pipeline documentation, and milestone tracking for an AI-powered railway safety alert system.</li>
+          <li>Tracked 5 key deliverables with zero missed deadlines across the full project lifecycle.</li>
+        </ul>
+      </div>
+
+      <div class="exp-row reveal">
+        <div class="exp-top">
+          <h3>Mini Project — Alumni Portal</h3>
+          <span class="exp-meta">B.Tech IT · React.js / Node.js / Firebase</span>
+        </div>
+        <ul>
+          <li>Managed sprint planning, backlog grooming, and cross-functional coordination across 3 sprints for a live platform serving 200+ alumni.</li>
+          <li>Delivered 100% of milestones on time and in scope; owned QA and documentation.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 5. SKILLS ============ -->
+<section class="section" id="skills">
+  <div class="container">
+    <p class="eyebrow reveal">Capabilities</p>
+    <h2 class="h2 reveal">Skills</h2>
+    <div class="skills-grid" style="margin-top:40px;">
+      <div class="skill-cluster reveal">
+        <h3>PRODUCT &amp; STRATEGY</h3>
+        <div class="chip-row">
+          <span class="chip">Product Thinking</span><span class="chip">Product Planning</span><span class="chip">Requirement Analysis</span><span class="chip">Stakeholder Mgmt</span><span class="chip">Business Strategy</span><span class="chip">Growth Strategy</span><span class="chip">Brand Positioning</span><span class="chip">Product Positioning</span>
+        </div>
+      </div>
+      <div class="skill-cluster reveal">
+        <h3>ANALYTICS &amp; RESEARCH</h3>
+        <div class="chip-row">
+          <span class="chip">Product Analytics</span><span class="chip">Business Analysis</span><span class="chip">Market Research</span><span class="chip">Competitor Analysis</span><span class="chip">Consumer Research</span><span class="chip">User Research</span><span class="chip">Marketing Analytics</span>
+        </div>
+      </div>
+      <div class="skill-cluster reveal">
+        <h3>AI &amp; SYSTEMS</h3>
+        <div class="chip-row">
+          <span class="chip">Computer Vision</span><span class="chip">Deep Learning</span><span class="chip">System Thinking</span><span class="chip">AI-Powered Tools</span><span class="chip">Dashboard Design</span><span class="chip">Automation Workflows</span>
+        </div>
+      </div>
+      <div class="skill-cluster reveal">
+        <h3>EXECUTION &amp; OPS</h3>
+        <div class="chip-row">
+          <span class="chip">Project Management</span><span class="chip">Problem Solving</span><span class="chip">SEO</span><span class="chip">Research</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6. AI ASSISTANT ============ -->
+<section class="section" id="ai-assistant">
+  <div class="container">
+    <div class="ai-panel reveal">
+      <p class="eyebrow" style="justify-content:center;">Live</p>
+      <h2>🤖 Talk to Keerthana AI</h2>
+      <p class="lede">Interact with my AI assistant to learn more about my background, projects, skills, experience, career goals, availability, salary expectations, and work preferences.</p>
+      <a href="https://lab.anam.ai/share/vgsKhbpzfqsxODTXVBto0" target="_blank" rel="noopener" class="btn btn-ai btn-ai-large ai-link">
+        <span class="ai-dot"></span> Launch AI Assistant
+      </a>
+      <div class="ai-chip-row">
+        <span class="chip">Projects</span><span class="chip">Experience</span><span class="chip">Skills</span><span class="chip">Career Goals</span><span class="chip">Availability</span><span class="chip">Salary Expectations</span><span class="chip">Work Preferences</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 7. CONTACT ============ -->
+<section class="section" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="reveal">
+        <p class="eyebrow">Get In Touch</p>
+        <h2 class="h2">Let's build something.</h2>
+        <p class="lede">Open to Product Management, Product Analyst, and Business Analyst roles — and conversations about AI-powered operations.</p>
+        <div class="contact-direct">
+          <a href="mailto:keerthanaaaa2003@gmail.com">keerthanaaaa2003@gmail.com</a>
+        </div>
+        <div class="social-row">
+          <a href="https://www.linkedin.com/in/keerthana-a-634739245" target="_blank" rel="noopener" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5.001 2.5 2.5 0 0 1 0-5.001ZM3 8.98h4v12.02H3V8.98Zm7 0h3.8v1.64h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1v6.33h-4v-5.6c0-1.34-.02-3.06-1.87-3.06-1.87 0-2.16 1.46-2.16 2.96v5.7h-4V8.98Z"/></svg></a>
+          <a href="mailto:keerthanaaaa2003@gmail.com" aria-label="Email"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M2 6.5A2.5 2.5 0 0 1 4.5 4h15A2.5 2.5 0 0 1 22 6.5v11a2.5 2.5 0 0 1-2.5 2.5h-15A2.5 2.5 0 0 1 2 17.5v-11Zm2.2-.5 7.3 5.4a.8.8 0 0 0 .96 0L19.8 6H4.2Zm15.8 1.74-7.18 5.32a2.8 2.8 0 0 1-3.34 0L4.3 7.74V17.5c0 .12.1.2.2.2h15c.12 0 .2-.1.2-.2V7.74Z"/></svg></a>
+        </div>
+      </div>
+
+      <form class="reveal" id="contactForm">
+        <div class="form-row">
+          <label for="cName">Name</label>
+          <input type="text" id="cName" name="name" required>
+        </div>
+        <div class="form-row">
+          <label for="cEmail">Email</label>
+          <input type="email" id="cEmail" name="email" required>
+        </div>
+        <div class="form-row">
+          <label for="cMsg">Message</label>
+          <textarea id="cMsg" name="message" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">Send Message</button>
+        <p class="form-note">This form needs a backend (e.g. Formspree or a mail API) connected before it can send — for now it opens your email client.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container footer-inner">
+    <a href="#home" class="brand">KEERTHANA A</a>
+    <div class="footer-links">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#ai-assistant">AI Assistant</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>© 2026 Keerthana A. Built with intent.</span>
+    <a href="#home" class="back-top">Back to top ↑</a>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ===================== MOBILE NAV ===================== */
+const hamburgerBtn = document.getElementById('hamburgerBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+const mobileCloseBtn = document.getElementById('mobileCloseBtn');
+hamburgerBtn.addEventListener('click', () => {
+  mobileMenu.classList.add('open');
+  hamburgerBtn.setAttribute('aria-expanded','true');
+});
+mobileCloseBtn.addEventListener('click', closeMobileMenu);
+mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMobileMenu));
+function closeMobileMenu(){
+  mobileMenu.classList.remove('open');
+  hamburgerBtn.setAttribute('aria-expanded','false');
+}
+
+/* ===================== SCROLL REVEAL ===================== */
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const revealEls = document.querySelectorAll('.reveal');
+if('IntersectionObserver' in window && !reduceMotion){
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('is-visible'); io.unobserve(e.target); } });
+  }, {threshold:0.15});
+  revealEls.forEach(el => io.observe(el));
+} else {
+  revealEls.forEach(el => el.classList.add('is-visible'));
+}
+
+/* ===================== ACTIVE SECTION HIGHLIGHTING (SCROLL SPY) ===================== */
+const sectionIds = ['home','about','projects','experience','skills','ai-assistant','contact'];
+const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
+const allNavAnchors = document.querySelectorAll('.nav-links a, .mobile-menu a');
+
+function setActive(id){
+  allNavAnchors.forEach(a => {
+    a.classList.toggle('active', a.dataset.section === id);
+  });
+}
+
+if('IntersectionObserver' in window){
+  const spy = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){ setActive(entry.target.id); }
+    });
+  }, { rootMargin: '-' + (parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) + 10) + 'px 0px -55% 0px', threshold: 0 });
+  sections.forEach(sec => spy.observe(sec));
+}
+setActive('home');
+
+/* ===================== PHOTO ===================== */
+const realPhoto = document.getElementById('realPhoto');
+realPhoto.addEventListener('error', () => {
+  realPhoto.style.display = 'none';
+  console.warn('Profile photo failed to load — check assets/photo-keerthana.jpg path.');
+});
+
+/* ===================== TOAST ===================== */
+const toast = document.getElementById('toast');
+function showToast(msg){
+  toast.textContent = msg;
+  toast.classList.add('show');
+  clearTimeout(window.__toastTimer);
+  window.__toastTimer = setTimeout(() => toast.classList.remove('show'), 3200);
+}
+
+/* ===================== AI ASSISTANT LINK (opens in new tab) ===================== */
+document.querySelectorAll('.ai-link').forEach(link => {
+  link.addEventListener('click', () => {
+    showToast('Opening Keerthana AI in a new tab…');
+  });
+});
+
+/* ===================== CONTACT FORM (front-end placeholder) ===================== */
+const contactForm = document.getElementById('contactForm');
+contactForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const name = document.getElementById('cName').value;
+  const email = document.getElementById('cEmail').value;
+  const msg = document.getElementById('cMsg').value;
+  const subject = encodeURIComponent('Portfolio contact from ' + name);
+  const body = encodeURIComponent(msg + '\n\n— ' + name + ' (' + email + ')');
+  window.location.href = 'mailto:keerthanaaaa2003@gmail.com?subject=' + subject + '&body=' + body;
+});
+</script>
+</body>
+</html>
